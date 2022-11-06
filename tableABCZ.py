@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 import math
 
-dfGenotipo = pd.read_table('/IFTM_HACKATON/26k.txt')
-dfMapa = pd.read_table('/IFTM_HACKATON/mapa_26k.txt')
+dfGenotipo = pd.read_table('C:/Users/range/Desktop/IFTM_HACKATON/777k.txt')
+dfMapa = pd.read_table('C:/Users/range/Desktop/IFTM_HACKATON/mapa_777k.txt')
 
 colunas = dfGenotipo.columns.values.tolist()
 
@@ -120,19 +120,17 @@ else:
 
     print(indicesColunas)
     
-
-
-
-
 SNP_Name = np.asarray(dfGenotipo2['SNP Name'].str.replace('-','.'))
 Sample_ID = np.asarray(dfGenotipo2['Sample ID'])
+gene = 0
 if(len(colunas)>4):
     alelo1 = np.asarray(dfGenotipo2[colunas[indicesColunas[0]]])
     alelo2 = np.asarray(dfGenotipo2[colunas[indicesColunas[1]]])
+    gene = alelo1+alelo2
 else:
     alelo1 = np.asarray(dfGenotipo2['alelo 1'])
-    alelo4 = np.asarray(dfGenotipo2['alelo 2'])
-gene = alelo1+alelo2
+    alelo2 = np.asarray(dfGenotipo2['alelo 2'])
+    gene = alelo1+alelo2
 
 for j in range(len(gene)):
     cont= 0
